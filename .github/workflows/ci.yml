@@ -24,7 +24,6 @@ jobs:
       - name: Build container image in ACR
         run: |
           az acr build --registry trainingapcacr --image todo-app:training12-${{ github.event.number }} .
-          #... (az acr build ステップの直後)...
 
       - name: Scan image for vulnerabilities with Trivy
         uses: aquasecurity/trivy-action@master
