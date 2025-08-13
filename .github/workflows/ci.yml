@@ -14,7 +14,7 @@ jobs:
       - name: Lint Dockerfile
         uses: hadolint/hadolint-action@v3.1.0
         with:
-          dockerfile: ./Dockerfile
+          dockerfile: Dockerfile
 
       - name: Login to Azure
         uses: azure/login@v2
@@ -23,4 +23,4 @@ jobs:
 
       - name: Build container image in ACR
         run: |
-          az acr build --registry trainingapcacr --image todo-app:<training12>-${{ github.event.number }} .
+          az acr build --registry trainingapcacr --image todo-app:training12-${{ github.event.number }} .
